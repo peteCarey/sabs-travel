@@ -1,0 +1,70 @@
+<h3>{{ pageTitle }}</h3>
+<div class="tableResponsive">
+  <table class="table" *ngIf="results.length">
+    <thead>
+      <tr>
+        <!--  <th>RecNum</th>
+
+        <th>Infants</th>
+        <th>Co2Produced</th>
+        <th>OutBoundUid</th>
+        <th>DistanceTravelled</th>-->
+        <th>DepStnFull</th>
+        <th>DepStationCode</th>
+        <th>DepDate</th>
+        <th>DepTime</th>
+        <th>ArrTime</th>
+        <th>ArrStnFull</th>
+
+        <th>RouteTransport</th>
+        <th>Operator</th>
+
+        <th>TicketDescription</th>
+        <th>AdtPrice</th>
+        <th>TravelCardDiscAdt</th>
+        <!--     <th>Operator</th>-->
+
+        <!--TicketDescription: "Standard Advance Single SP"
+TravelCardDiscAdt:-->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of results" let i="index">
+        <!-- <td>{{ result.RecNum }}</td>
+
+        <td>{{ result.Infants }}</td>
+        <td>{{ result.Co2Produced }}</td>
+        <td>{{ result.OutBoundUid }}</td>
+        <td>{{ result.DistanceTravelled }}</td>-->
+        <td>{{ result.Legs[0].DepStnFull }}</td>
+        <td>{{ result.DepStationCode }}</td>
+        <td>{{ result.Legs[0].DepDate }}</td>
+        <td>{{ result.Legs[0].DepTime }}</td>
+        <td>{{ result.Legs[0].ArrTime }}</td>
+        <!-- <td>{{ result.ArrStnFull }}
+            "Operator": "VT",
+				"DepStn": "MAN",
+				"DepDate": "20171025",
+        </td>-->
+
+        <!--this.results[0].Legs[0].ArrStnFull-->
+        <td>{{ result.Legs[0].ArrStnFull }}</td>
+
+        <td>{{ result.Legs[0].RouteTransport }}</td>
+        <td>{{ result.Legs[0].Operator }}</td>
+
+        <td>{{ result.Legs[0].TKTs[0].TicketDescription }}</td>
+        <td>{{ result.Legs[0].TKTs[0].AdtPrice }}</td>
+        <td>{{ result.Legs[0].TKTs[0].TravelCardDiscAdt }}</td>
+        <!-- <td>{{ result.Legs[0].TKTs[0].Operator }}</td> -->
+        <!--
+        <td *ngIf="results">
+        <td>
+          <div *ngFor="let leg of result.Legs">
+            <span>{{ leg.ArrStnFull }} </span>
+          </div>
+        </td>-->
+      </tr>
+    </tbody>
+  </table>
+</div>
