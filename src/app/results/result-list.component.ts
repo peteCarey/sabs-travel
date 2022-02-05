@@ -12,6 +12,8 @@ export class ResultListComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   results: IResult[] = [];
   pageTitle: string = 'Result List';
+  i: any;
+  isShow = false;
   constructor(private resultService: ResultService) {}
 
   ngOnInit(): void {
@@ -31,5 +33,9 @@ export class ResultListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+  }
+
+  toggleDisplay() {
+    this.isShow = !this.isShow;
   }
 }

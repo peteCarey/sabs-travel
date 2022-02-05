@@ -1,70 +1,154 @@
 <h3>{{ pageTitle }}</h3>
 <div class="tableResponsive">
-  <table class="table" *ngIf="results.length">
-    <thead>
-      <tr>
-        <!--  <th>RecNum</th>
+  <div *ngIf="!isShow">
+    <!--table 1 -->
+    <table class="table" *ngIf="results.length">
+      <thead>
+        <div>
+          <tr>
+            <!--  <th>RecNum</th>
+            <th>Infants</th>
+            <th>Co2Produced</th>
+            <th>OutBoundUid</th>
+            <th>DistanceTravelled</th>-->
+            <th>DepStnFull</th>
+            <!--   <th>DepStationCode</th> -->
+            <th>DepDate</th>
+            <th>DepTime</th>
+            <th>ArrTime</th>
+            <th>ArrStnFull</th>
 
-        <th>Infants</th>
-        <th>Co2Produced</th>
-        <th>OutBoundUid</th>
-        <th>DistanceTravelled</th>-->
-        <th>DepStnFull</th>
-        <th>DepStationCode</th>
-        <th>DepDate</th>
-        <th>DepTime</th>
-        <th>ArrTime</th>
-        <th>ArrStnFull</th>
+            <th>RouteTransport</th>
+            <th>Operator</th>
 
-        <th>RouteTransport</th>
-        <th>Operator</th>
+            <th>Index</th>
+          </tr>
+        </div>
+      </thead>
+      <tbody>
+        <!--  <tr *ngFor="let result of results" let i="index"> -->
+        <!--<tr *ngFor="let result of results[0].Legs">
+        </tr>-->
+        <div>
+          <tr *ngFor="let result of results[0].Legs; index as i">
+            <td>{{ result.DepStnFull }}</td>
+            <td>{{ result.DepDate }}</td>
+            <td>{{ result.DepTime }}</td>
+            <td>{{ result.ArrTime }}</td>
+            <td>{{ result.ArrStnFull }}</td>
+            <td>{{ result.RouteTransport }}</td>
+            <td>{{ result.Operator }}</td>
 
-        <th>TicketDescription</th>
-        <th>AdtPrice</th>
-        <th>TravelCardDiscAdt</th>
-        <!--     <th>Operator</th>-->
+            <td>{{ i }}</td>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+  </div>
 
-        <!--TicketDescription: "Standard Advance Single SP"
+  <div *ngIf="!isShow">
+    <!--table 2 -->
+    <table class="table" *ngIf="results.length">
+      <thead>
+        <div>
+          <tr>
+            <th>DepStnFull</th>
+            <!--   <th>DepStationCode</th> -->
+            <th>DepDate</th>
+            <th>DepTime</th>
+            <th>ArrTime</th>
+            <th>ArrStnFull</th>
+
+            <th>RouteTransport</th>
+            <th>Operator</th>
+            <th>Index</th>
+            <!--     <th>Operator</th>-->
+
+            <!--TicketDescription: "Standard Advance Single SP"
 TravelCardDiscAdt:-->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let result of results" let i="index">
-        <!-- <td>{{ result.RecNum }}</td>
+          </tr>
+        </div>
+      </thead>
 
-        <td>{{ result.Infants }}</td>
-        <td>{{ result.Co2Produced }}</td>
-        <td>{{ result.OutBoundUid }}</td>
-        <td>{{ result.DistanceTravelled }}</td>-->
-        <td>{{ result.Legs[0].DepStnFull }}</td>
-        <td>{{ result.DepStationCode }}</td>
-        <td>{{ result.Legs[0].DepDate }}</td>
-        <td>{{ result.Legs[0].DepTime }}</td>
-        <td>{{ result.Legs[0].ArrTime }}</td>
-        <!-- <td>{{ result.ArrStnFull }}
-            "Operator": "VT",
-				"DepStn": "MAN",
-				"DepDate": "20171025",
-        </td>-->
+      <tbody>
+        <div>
+          <tr *ngFor="let result of results[1].Legs; index as i">
+            <td>{{ result.DepStnFull }}</td>
+            <td>{{ result.DepDate }}</td>
+            <td>{{ result.DepTime }}</td>
+            <td>{{ result.ArrTime }}</td>
+            <td>{{ result.ArrStnFull }}</td>
+            <td>{{ result.RouteTransport }}</td>
+            <td>{{ result.Operator }}</td>
 
-        <!--this.results[0].Legs[0].ArrStnFull-->
-        <td>{{ result.Legs[0].ArrStnFull }}</td>
+            <td>{{ i }}</td>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+  </div>
 
-        <td>{{ result.Legs[0].RouteTransport }}</td>
-        <td>{{ result.Legs[0].Operator }}</td>
+  <div *ngIf="isShow">
+    <!--table 3 -->
+    <table class="table" *ngIf="results.length">
+      <thead>
+        <div>
+          <tr>
+            <th>Operator</th>
 
-        <td>{{ result.Legs[0].TKTs[0].TicketDescription }}</td>
-        <td>{{ result.Legs[0].TKTs[0].AdtPrice }}</td>
-        <td>{{ result.Legs[0].TKTs[0].TravelCardDiscAdt }}</td>
-        <!-- <td>{{ result.Legs[0].TKTs[0].Operator }}</td> -->
-        <!--
-        <td *ngIf="results">
-        <td>
-          <div *ngFor="let leg of result.Legs">
-            <span>{{ leg.ArrStnFull }} </span>
-          </div>
-        </td>-->
-      </tr>
-    </tbody>
-  </table>
+            <th>TicketDescription</th>
+            <th>AdtPrice</th>
+            <th>TravelCardDiscAdt</th>
+            <th>Index</th>
+            <!--     <th>Operator</th>-->
+          </tr>
+        </div>
+      </thead>
+      <tbody>
+        <div>
+          <tr *ngFor="let result of results[0].Legs[0].TKTs; index as i">
+            <td>{{ result.Operator }}</td>
+
+            <td>{{ result.TicketDescription }}</td>
+            <td>{{ result.AdtPrice }}</td>
+            <td>{{ result.TravelCardDiscAdt }}</td>
+            <td>{{ i }}</td>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+  </div>
+
+  <!--table 4 -->
+  <div *ngIf="isShow">
+    <table class="table" *ngIf="results.length">
+      <thead>
+        <div>
+          <tr>
+            <th>Operator</th>
+
+            <th>TicketDescription</th>
+            <th>AdtPrice</th>
+            <th>TravelCardDiscAdt</th>
+            <th>Index</th>
+          </tr>
+        </div>
+      </thead>
+      <tbody>
+        <div>
+          <tr *ngFor="let result of results[1].Legs[0].TKTs; index as i">
+            <td>{{ result.Operator }}</td>
+
+            <td>{{ result.TicketDescription }}</td>
+            <td>{{ result.AdtPrice }}</td>
+            <td>{{ result.TravelCardDiscAdt }}</td>
+            <td>{{ i }}</td>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <button (click)="toggleDisplay()">Get Prices</button>
+  </div>
 </div>
