@@ -1,8 +1,11 @@
 <h3>{{ pageTitle }}</h3>
 <div class="tableResponsive">
-  <div *ngIf="!isShow">
+  <div *ngIf="visible" id="1">
     <!--table 1 -->
     <table class="table" *ngIf="results.length">
+      <caption>
+        Train 1
+      </caption>
       <thead>
         <div>
           <tr>
@@ -13,11 +16,8 @@
             <th>DistanceTravelled</th>-->
             <th>DepStnFull</th>
             <!--   <th>DepStationCode</th> -->
-            <th>DepDate</th>
-            <th>DepTime</th>
-            <th>ArrTime</th>
-            <th>ArrStnFull</th>
 
+            <th>ArrStnFull</th>
             <th>RouteTransport</th>
             <th>Operator</th>
 
@@ -32,35 +32,145 @@
         <div>
           <tr *ngFor="let result of results[0].Legs; index as i">
             <td>{{ result.DepStnFull }}</td>
-            <td>{{ result.DepDate }}</td>
-            <td>{{ result.DepTime }}</td>
-            <td>{{ result.ArrTime }}</td>
+
             <td>{{ result.ArrStnFull }}</td>
             <td>{{ result.RouteTransport }}</td>
             <td>{{ result.Operator }}</td>
 
             <td>{{ i }}</td>
+            <td>
+              <!--show Times-->
+              <button #myNameElem (click)="showhideUtility()">
+                {{ buttonTitle }}
+              </button>
+            </td>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="!visible">
+    <!--table 2 -->
+    <table class="table" #myElement *ngIf="results.length">
+      <caption>
+        table 2
+      </caption>
+      <thead>
+        <div>
+          <tr>
+            <!--  <th>RecNum</th>
+            <th>Infants</th>
+            <th>Co2Produced</th>
+            <th>OutBoundUid</th>
+            <th>DistanceTravelled</th>-->
+            <th>DepStnFull</th>
+            <!--   <th>DepStationCode</th> -->
+
+            <th>ArrStnFull</th>
+
+            <th>RouteTransport</th>
+            <th>Operator</th>
+
+            <th>DepTime</th>
+            <th>ArrTime</th>
+
+            <th>Index</th>
+          </tr>
+        </div>
+      </thead>
+      <tbody>
+        <!--  <tr *ngFor="let result of results" let i="index"> -->
+        <!--<tr *ngFor="let result of results[0].Legs">
+        </tr>-->
+        <div>
+          <tr *ngFor="let result of results[0].Legs; index as i">
+            <td>{{ result.DepStnFull }}</td>
+
+            <td>{{ result.ArrStnFull }}</td>
+            <td>{{ result.RouteTransport }}</td>
+            <td>{{ result.Operator }}</td>
+
+            <td>{{ result.DepTime }}</td>
+            <td>{{ result.ArrTime }}</td>
+
+            <td>{{ i }}</td>
+            <td>
+              <!--Show Prices-->
+              <button (click)="showhideUtility()">
+                {{ buttonTitle }}
+              </button>
+            </td>
           </tr>
         </div>
       </tbody>
     </table>
   </div>
 
-  <div *ngIf="!isShow">
-    <!--table 2 -->
+  <div *ngIf="visible">
+    <!--table 3 -->
     <table class="table" *ngIf="results.length">
+      <caption>
+        Train 2
+      </caption>
       <thead>
         <div>
           <tr>
             <th>DepStnFull</th>
             <!--   <th>DepStationCode</th> -->
-            <th>DepDate</th>
-            <th>DepTime</th>
-            <th>ArrTime</th>
+
             <th>ArrStnFull</th>
 
             <th>RouteTransport</th>
             <th>Operator</th>
+            <th>Index</th>
+            <!--<th>Operator</th>-->
+            <!--TicketDescription: "Standard Advance Single SP"
+            TravelCardDiscAdt:-->
+          </tr>
+        </div>
+      </thead>
+
+      <tbody>
+        <div>
+          <tr *ngFor="let result of results[1].Legs; index as i">
+            <td>{{ result.DepStnFull }}</td>
+
+            <td>{{ result.ArrStnFull }}</td>
+            <td>{{ result.RouteTransport }}</td>
+            <td>{{ result.Operator }}</td>
+
+            <td>{{ i }}</td>
+            <td>
+              <!--Show Times-->
+              <button #myNameElem (click)="showhideUtility()">
+                {{ buttonTitle }}
+              </button>
+            </td>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!visible">
+    <!--table 4 -->
+    <table class="table" *ngIf="results.length">
+      <caption>
+        table 4
+      </caption>
+      <thead>
+        <div>
+          <tr>
+            <th>DepStnFull</th>
+            <!--   <th>DepStationCode</th> -->
+
+            <th>ArrStnFull</th>
+
+            <th>RouteTransport</th>
+            <th>Operator</th>
+
+            <th>DepTime</th>
+            <th>ArrTime</th>
             <th>Index</th>
             <!--     <th>Operator</th>-->
 
@@ -74,23 +184,38 @@ TravelCardDiscAdt:-->
         <div>
           <tr *ngFor="let result of results[1].Legs; index as i">
             <td>{{ result.DepStnFull }}</td>
-            <td>{{ result.DepDate }}</td>
-            <td>{{ result.DepTime }}</td>
-            <td>{{ result.ArrTime }}</td>
+
             <td>{{ result.ArrStnFull }}</td>
             <td>{{ result.RouteTransport }}</td>
             <td>{{ result.Operator }}</td>
 
+            <td>{{ result.DepTime }}</td>
+            <td>{{ result.ArrTime }}</td>
+
             <td>{{ i }}</td>
+            <td>
+              <!--Show Prices-->
+              <button (click)="showhideUtility()">
+                {{ buttonTitle }}
+              </button>
+            </td>
           </tr>
         </div>
       </tbody>
     </table>
   </div>
 
-  <div *ngIf="isShow">
-    <!--table 3 -->
-    <table class="table" *ngIf="results.length">
+  <div *ngIf="visible">
+    <!--table 5 -->
+    <table
+      class="table"
+      id="table5"
+      style="display: none"
+      *ngIf="results.length"
+    >
+      <caption>
+        Table 5
+      </caption>
       <thead>
         <div>
           <tr>
@@ -119,9 +244,17 @@ TravelCardDiscAdt:-->
     </table>
   </div>
 
-  <!--table 4 -->
-  <div *ngIf="isShow">
-    <table class="table" *ngIf="results.length">
+  <!--table 6 -->
+  <div *ngIf="visible">
+    <table
+      class="table"
+      id="table6"
+      style="display: none"
+      *ngIf="results.length"
+    >
+      <caption>
+        Table 6
+      </caption>
       <thead>
         <div>
           <tr>
@@ -147,8 +280,5 @@ TravelCardDiscAdt:-->
         </div>
       </tbody>
     </table>
-  </div>
-  <div>
-    <button (click)="toggleDisplay()">Get Prices</button>
   </div>
 </div>

@@ -1,4 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  VERSION,
+  ViewChild,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IResult } from './result';
 import { ResultService } from './result.service';
@@ -14,6 +21,13 @@ export class ResultListComponent implements OnInit, OnDestroy {
   pageTitle: string = 'Result List';
   i: any;
   isShow = false;
+  visible: boolean = true;
+  buttonTitle: string = 'Show Times';
+
+  name = 'Angular ' + VERSION.major;
+
+  @ViewChild('myNameElem') myNameElem!: ElementRef;
+
   constructor(private resultService: ResultService) {}
 
   ngOnInit(): void {
@@ -34,8 +48,21 @@ export class ResultListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
-
+  /*
   toggleDisplay() {
+    console.log(this.myNameElem.nativeElement.value);
     this.isShow = !this.isShow;
+  }
+
+  displayPrices() {
+    const myElement = document.getElementById('table3');
+    //myElement.style.display = 'block';
+  }
+*/
+
+  showhideUtility() {
+    console.log(this.buttonTitle);
+    this.visible = this.visible ? false : true;
+    this.buttonTitle = this.visible ? 'Show Times' : 'Show Prices';
   }
 }
