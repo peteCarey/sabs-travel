@@ -1,284 +1,144 @@
 <h3>{{ pageTitle }}</h3>
-<div class="tableResponsive">
-  <div *ngIf="visible" id="1">
-    <!--table 1 -->
-    <table class="table" *ngIf="results.length">
-      <caption>
-        Train 1
-      </caption>
-      <thead>
-        <div>
-          <tr>
-            <!--  <th>RecNum</th>
-            <th>Infants</th>
-            <th>Co2Produced</th>
-            <th>OutBoundUid</th>
-            <th>DistanceTravelled</th>-->
-            <th>DepStnFull</th>
-            <!--   <th>DepStationCode</th> -->
+<!--table 2 -->
+<table class="table" [ngClass]="{ 'show-prices': !pricesTable }" id="table2">
+  <caption>
+    table 2
+  </caption>
+  <thead>
+    <div>
+      <tr>
+        <th>Depart</th>
+        <th>Arrive</th>
+        <th>Transport</th>
+        <th>Operator</th>
+        <th>DepTime</th>
+        <th>ArrTime</th>
+        <th>Index</th>
+      </tr>
+    </div>
+  </thead>
+  <tbody>
+    <div>
+      <tr *ngFor="let result of results[0].Legs; index as i">
+        <td>{{ result.DepStnFull }}</td>
 
-            <th>ArrStnFull</th>
-            <th>RouteTransport</th>
-            <th>Operator</th>
+        <td>{{ result.ArrStnFull }}</td>
+        <td>{{ result.RouteTransport }}</td>
+        <td>{{ result.Operator }}</td>
 
-            <th>Index</th>
-          </tr>
-        </div>
-      </thead>
-      <tbody>
-        <!--  <tr *ngFor="let result of results" let i="index"> -->
-        <!--<tr *ngFor="let result of results[0].Legs">
-        </tr>-->
-        <div>
-          <tr *ngFor="let result of results[0].Legs; index as i">
-            <td>{{ result.DepStnFull }}</td>
+        <td>{{ result.DepTime }}</td>
+        <td>{{ result.ArrTime }}</td>
+        <td>{{ i }}</td>
+      </tr>
+    </div>
+  </tbody>
+</table>
 
-            <td>{{ result.ArrStnFull }}</td>
-            <td>{{ result.RouteTransport }}</td>
-            <td>{{ result.Operator }}</td>
+<!--table 4 -->
+<table class="table" [ngClass]="{ 'show-prices': !pricesTable }" id="table4">
+  <caption>
+    table 4
+  </caption>
+  <thead>
+    <div>
+      <tr>
+        <th>Depart</th>
+        <th>Arrive</th>
+        <th>Transport</th>
+        <th>Operator</th>
+        <th>DepTime</th>
+        <th>ArrTime</th>
+        <th>Index</th>
+      </tr>
+    </div>
+  </thead>
 
-            <td>{{ i }}</td>
-            <td>
-              <!--show Times-->
-              <button #myNameElem (click)="showhideUtility()">
-                {{ buttonTitle }}
-              </button>
-            </td>
-          </tr>
-        </div>
-      </tbody>
-    </table>
-  </div>
-  <div *ngIf="!visible">
-    <!--table 2 -->
-    <table class="table" #myElement *ngIf="results.length">
-      <caption>
-        table 2
-      </caption>
-      <thead>
-        <div>
-          <tr>
-            <!--  <th>RecNum</th>
-            <th>Infants</th>
-            <th>Co2Produced</th>
-            <th>OutBoundUid</th>
-            <th>DistanceTravelled</th>-->
-            <th>DepStnFull</th>
-            <!--   <th>DepStationCode</th> -->
+  <tbody>
+    <div>
+      <tr *ngFor="let result of results[1].Legs; index as i">
+        <td>{{ result.DepStnFull }}</td>
+        <td>{{ result.ArrStnFull }}</td>
+        <td>{{ result.RouteTransport }}</td>
+        <td>{{ result.Operator }}</td>
+        <td>{{ result.DepTime }}</td>
+        <td>{{ result.ArrTime }}</td>
+        <td>{{ i }}</td>
+      </tr>
+      <!--Show Prices-->
+      <button (click)="showPricesTables()">
+        {{ buttonTitle }}
+      </button>
+    </div>
+  </tbody>
+</table>
 
-            <th>ArrStnFull</th>
+<!--table 5 
+  class="table-prices"-->
+<table
+  class="table-prices"
+  [ngClass]="{ 'show-prices': pricesTable }"
+  id="table5"
+>
+  <caption>
+    Table 5
+  </caption>
+  <thead>
+    <div>
+      <tr>
+        <th>Operator</th>
+        <th>TicketDescription</th>
+        <th>AdtPrice</th>
+        <th>TravelCardDiscAdt</th>
+        <th>Index</th>
+      </tr>
+    </div>
+  </thead>
+  <tbody>
+    <div>
+      <tr *ngFor="let result of results[0].Legs[0].TKTs; index as i">
+        <td>{{ result.Operator }}</td>
+        <td>{{ result.TicketDescription }}</td>
+        <td>{{ result.AdtPrice }}</td>
+        <td>{{ result.TravelCardDiscAdt }}</td>
+        <td>{{ i }}</td>
+      </tr>
+    </div>
+  </tbody>
+</table>
 
-            <th>RouteTransport</th>
-            <th>Operator</th>
+<!--table 6 -->
 
-            <th>DepTime</th>
-            <th>ArrTime</th>
-
-            <th>Index</th>
-          </tr>
-        </div>
-      </thead>
-      <tbody>
-        <!--  <tr *ngFor="let result of results" let i="index"> -->
-        <!--<tr *ngFor="let result of results[0].Legs">
-        </tr>-->
-        <div>
-          <tr *ngFor="let result of results[0].Legs; index as i">
-            <td>{{ result.DepStnFull }}</td>
-
-            <td>{{ result.ArrStnFull }}</td>
-            <td>{{ result.RouteTransport }}</td>
-            <td>{{ result.Operator }}</td>
-
-            <td>{{ result.DepTime }}</td>
-            <td>{{ result.ArrTime }}</td>
-
-            <td>{{ i }}</td>
-            <td>
-              <!--Show Prices-->
-              <button (click)="showhideUtility()">
-                {{ buttonTitle }}
-              </button>
-            </td>
-          </tr>
-        </div>
-      </tbody>
-    </table>
-  </div>
-
-  <div *ngIf="visible">
-    <!--table 3 -->
-    <table class="table" *ngIf="results.length">
-      <caption>
-        Train 2
-      </caption>
-      <thead>
-        <div>
-          <tr>
-            <th>DepStnFull</th>
-            <!--   <th>DepStationCode</th> -->
-
-            <th>ArrStnFull</th>
-
-            <th>RouteTransport</th>
-            <th>Operator</th>
-            <th>Index</th>
-            <!--<th>Operator</th>-->
-            <!--TicketDescription: "Standard Advance Single SP"
-            TravelCardDiscAdt:-->
-          </tr>
-        </div>
-      </thead>
-
-      <tbody>
-        <div>
-          <tr *ngFor="let result of results[1].Legs; index as i">
-            <td>{{ result.DepStnFull }}</td>
-
-            <td>{{ result.ArrStnFull }}</td>
-            <td>{{ result.RouteTransport }}</td>
-            <td>{{ result.Operator }}</td>
-
-            <td>{{ i }}</td>
-            <td>
-              <!--Show Times-->
-              <button #myNameElem (click)="showhideUtility()">
-                {{ buttonTitle }}
-              </button>
-            </td>
-          </tr>
-        </div>
-      </tbody>
-    </table>
-  </div>
-
-  <div *ngIf="!visible">
-    <!--table 4 -->
-    <table class="table" *ngIf="results.length">
-      <caption>
-        table 4
-      </caption>
-      <thead>
-        <div>
-          <tr>
-            <th>DepStnFull</th>
-            <!--   <th>DepStationCode</th> -->
-
-            <th>ArrStnFull</th>
-
-            <th>RouteTransport</th>
-            <th>Operator</th>
-
-            <th>DepTime</th>
-            <th>ArrTime</th>
-            <th>Index</th>
-            <!--     <th>Operator</th>-->
-
-            <!--TicketDescription: "Standard Advance Single SP"
-TravelCardDiscAdt:-->
-          </tr>
-        </div>
-      </thead>
-
-      <tbody>
-        <div>
-          <tr *ngFor="let result of results[1].Legs; index as i">
-            <td>{{ result.DepStnFull }}</td>
-
-            <td>{{ result.ArrStnFull }}</td>
-            <td>{{ result.RouteTransport }}</td>
-            <td>{{ result.Operator }}</td>
-
-            <td>{{ result.DepTime }}</td>
-            <td>{{ result.ArrTime }}</td>
-
-            <td>{{ i }}</td>
-            <td>
-              <!--Show Prices-->
-              <button (click)="showhideUtility()">
-                {{ buttonTitle }}
-              </button>
-            </td>
-          </tr>
-        </div>
-      </tbody>
-    </table>
-  </div>
-
-  <div *ngIf="visible">
-    <!--table 5 -->
-    <table
-      class="table"
-      id="table5"
-      style="display: none"
-      *ngIf="results.length"
-    >
-      <caption>
-        Table 5
-      </caption>
-      <thead>
-        <div>
-          <tr>
-            <th>Operator</th>
-
-            <th>TicketDescription</th>
-            <th>AdtPrice</th>
-            <th>TravelCardDiscAdt</th>
-            <th>Index</th>
-            <!--     <th>Operator</th>-->
-          </tr>
-        </div>
-      </thead>
-      <tbody>
-        <div>
-          <tr *ngFor="let result of results[0].Legs[0].TKTs; index as i">
-            <td>{{ result.Operator }}</td>
-
-            <td>{{ result.TicketDescription }}</td>
-            <td>{{ result.AdtPrice }}</td>
-            <td>{{ result.TravelCardDiscAdt }}</td>
-            <td>{{ i }}</td>
-          </tr>
-        </div>
-      </tbody>
-    </table>
-  </div>
-
-  <!--table 6 -->
-  <div *ngIf="visible">
-    <table
-      class="table"
-      id="table6"
-      style="display: none"
-      *ngIf="results.length"
-    >
-      <caption>
-        Table 6
-      </caption>
-      <thead>
-        <div>
-          <tr>
-            <th>Operator</th>
-
-            <th>TicketDescription</th>
-            <th>AdtPrice</th>
-            <th>TravelCardDiscAdt</th>
-            <th>Index</th>
-          </tr>
-        </div>
-      </thead>
-      <tbody>
-        <div>
-          <tr *ngFor="let result of results[1].Legs[0].TKTs; index as i">
-            <td>{{ result.Operator }}</td>
-
-            <td>{{ result.TicketDescription }}</td>
-            <td>{{ result.AdtPrice }}</td>
-            <td>{{ result.TravelCardDiscAdt }}</td>
-            <td>{{ i }}</td>
-          </tr>
-        </div>
-      </tbody>
-    </table>
-  </div>
-</div>
+<table
+  class="table-prices"
+  [ngClass]="{ 'show-prices': pricesTable }"
+  id="table6"
+>
+  <caption>
+    Table 6
+  </caption>
+  <thead>
+    <div>
+      <tr>
+        <th>Operator</th>
+        <th>TicketDescription</th>
+        <th>AdtPrice</th>
+        <th>TravelCardDiscAdt</th>
+        <th>Index</th>
+      </tr>
+    </div>
+  </thead>
+  <tbody>
+    <div>
+      <tr *ngFor="let result of results[1].Legs[0].TKTs; index as i">
+        <td>{{ result.Operator }}</td>
+        <td>{{ result.TicketDescription }}</td>
+        <td>{{ result.AdtPrice }}</td>
+        <td>{{ result.TravelCardDiscAdt }}</td>
+        <td>{{ i }}</td>
+      </tr>
+      <button (click)="showPricesTables()">
+        {{ buttonTitle }}
+      </button>
+    </div>
+  </tbody>
+</table>

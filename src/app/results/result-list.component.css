@@ -1,0 +1,38 @@
+.show-prices {
+  display: none;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+  background-color: pink;
+}
+
+.table-prices {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+  background-color: yellow;
+}
+
+th {
+  background-color: red;
+  border: 1px solid red;
+  min-width: 100px;
+  max-width: 100px;
+}
+td {
+  border: 1px solid #dddddd;
+  min-width: 100px;
+  max-width: 100px;
+}
+td,
+th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

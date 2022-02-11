@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  VERSION,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IResult } from './result';
 import { ResultService } from './result.service';
@@ -13,6 +6,7 @@ import { ResultService } from './result.service';
 @Component({
   selector: 'app-results',
   templateUrl: './result-list.component.html',
+  styleUrls: ['./result-list.component.css'],
 })
 export class ResultListComponent implements OnInit, OnDestroy {
   errorMessage = '';
@@ -20,13 +14,9 @@ export class ResultListComponent implements OnInit, OnDestroy {
   results: IResult[] = [];
   pageTitle: string = 'Result List';
   i: any;
-  isShow = false;
-  visible: boolean = true;
-  buttonTitle: string = 'Show Times';
 
-  name = 'Angular ' + VERSION.major;
-
-  @ViewChild('myNameElem') myNameElem!: ElementRef;
+  pricesTable: boolean = true;
+  buttonTitle: string = 'Show Prices';
 
   constructor(private resultService: ResultService) {}
 
@@ -35,9 +25,9 @@ export class ResultListComponent implements OnInit, OnDestroy {
     this.sub = this.resultService.getResults().subscribe({
       next: (results) => {
         this.results = results;
-        //  this.filteredResults = this.results;
-        // console.log(this.results[0].Legs[0].ArrStnFull);
+
         console.log(this.results[0].Legs[0].TKTs);
+        console.log(results[1].Legs[0].TKTs);
         console.log(this.results[0].Legs);
         console.log(this.results);
       },
@@ -48,21 +38,9 @@ export class ResultListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
-  /*
-  toggleDisplay() {
-    console.log(this.myNameElem.nativeElement.value);
-    this.isShow = !this.isShow;
-  }
 
-  displayPrices() {
-    const myElement = document.getElementById('table3');
-    //myElement.style.display = 'block';
-  }
-*/
-
-  showhideUtility() {
-    console.log(this.buttonTitle);
-    this.visible = this.visible ? false : true;
-    this.buttonTitle = this.visible ? 'Show Times' : 'Show Prices';
+  showPricesTables() {
+    this.pricesTable = !this.pricesTable;
+    this.buttonTitle = this.pricesTable ? 'Show Prices' : 'Show Times';
   }
 }
