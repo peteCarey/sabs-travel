@@ -1,8 +1,7 @@
 <h3>{{ pageTitle }}</h3>
-<!--table 2 -->
-<table class="table" [ngClass]="{ 'show-prices': !pricesTable }" id="table2">
+<table class="table" [ngClass]="{ 'show-prices': !pricesTable }">
   <caption>
-    table 2
+    First train
   </caption>
   <thead>
     <div>
@@ -11,8 +10,8 @@
         <th>Arrive</th>
         <th>Transport</th>
         <th>Operator</th>
-        <th>DepTime</th>
-        <th>ArrTime</th>
+        <th>Departing</th>
+        <th>Arriving</th>
         <th>Index</th>
       </tr>
     </div>
@@ -34,10 +33,9 @@
   </tbody>
 </table>
 
-<!--table 4 -->
-<table class="table" [ngClass]="{ 'show-prices': !pricesTable }" id="table4">
+<table class="table" [ngClass]="{ 'show-prices': !pricesTable }">
   <caption>
-    table 4
+    Later train
   </caption>
   <thead>
     <div>
@@ -46,13 +44,12 @@
         <th>Arrive</th>
         <th>Transport</th>
         <th>Operator</th>
-        <th>DepTime</th>
-        <th>ArrTime</th>
+        <th>Departing</th>
+        <th>Arriving</th>
         <th>Index</th>
       </tr>
     </div>
   </thead>
-
   <tbody>
     <div>
       <tr *ngFor="let result of results[1].Legs; index as i">
@@ -64,31 +61,29 @@
         <td>{{ result.ArrTime }}</td>
         <td>{{ i }}</td>
       </tr>
-      <!--Show Prices-->
-      <button (click)="showPricesTables()">
-        {{ buttonTitle }}
-      </button>
     </div>
+    <!--Show Prices-->
+    <button (click)="showPricesTables()">
+      {{ buttonTitle }}
+    </button>
   </tbody>
 </table>
 
-<!--table 5 
-  class="table-prices"-->
 <table
   class="table-prices"
   [ngClass]="{ 'show-prices': pricesTable }"
   id="table5"
 >
   <caption>
-    Table 5
+    Early train prices
   </caption>
   <thead>
     <div>
       <tr>
         <th>Operator</th>
-        <th>TicketDescription</th>
-        <th>AdtPrice</th>
-        <th>TravelCardDiscAdt</th>
+        <th>Ticket Description</th>
+        <th>Adult Price</th>
+        <th>Travel Card Discount Amount</th>
         <th>Index</th>
       </tr>
     </div>
@@ -106,23 +101,21 @@
   </tbody>
 </table>
 
-<!--table 6 -->
-
 <table
   class="table-prices"
   [ngClass]="{ 'show-prices': pricesTable }"
   id="table6"
 >
   <caption>
-    Table 6
+    Later train prices
   </caption>
   <thead>
     <div>
       <tr>
         <th>Operator</th>
-        <th>TicketDescription</th>
-        <th>AdtPrice</th>
-        <th>TravelCardDiscAdt</th>
+        <th>Ticket Description</th>
+        <th>Adult Price</th>
+        <th>Travel Card Discount Amount</th>
         <th>Index</th>
       </tr>
     </div>
@@ -136,9 +129,9 @@
         <td>{{ result.TravelCardDiscAdt }}</td>
         <td>{{ i }}</td>
       </tr>
-      <button (click)="showPricesTables()">
-        {{ buttonTitle }}
-      </button>
     </div>
+    <button (click)="showPricesTables()">
+      {{ buttonTitle }}
+    </button>
   </tbody>
 </table>

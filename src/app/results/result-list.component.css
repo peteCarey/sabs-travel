@@ -6,26 +6,24 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 40%;
-  background-color: pink;
 }
 
 .table-prices {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 40%;
-  background-color: yellow;
+  width: 30%;
 }
 
 th {
-  background-color: red;
-  border: 1px solid red;
-  min-width: 100px;
-  max-width: 100px;
+  background-color: lime;
+  border: 1px solid lime;
+  min-width: 142px;
+  max-width: 142px;
 }
 td {
   border: 1px solid #dddddd;
-  min-width: 100px;
-  max-width: 100px;
+  min-width: 142px;
+  max-width: 142px;
 }
 td,
 th {

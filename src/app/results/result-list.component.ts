@@ -12,7 +12,7 @@ export class ResultListComponent implements OnInit, OnDestroy {
   errorMessage = '';
   sub!: Subscription;
   results: IResult[] = [];
-  pageTitle: string = 'Result List';
+  pageTitle: string = 'Results';
   i: any;
 
   pricesTable: boolean = true;
