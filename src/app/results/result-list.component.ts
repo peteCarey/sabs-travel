@@ -12,7 +12,7 @@ export class ResultListComponent implements OnInit, OnDestroy {
   errorMessage = '';
   sub!: Subscription;
   results: IResult[] = [];
-  pageTitle: string = 'Results';
+  pageTitle: string = 'Route';
   i: any;
 
   pricesTable: boolean = true;
@@ -21,7 +21,6 @@ export class ResultListComponent implements OnInit, OnDestroy {
   constructor(private resultService: ResultService) {}
 
   ngOnInit(): void {
-    console.log('resultlist');
     this.sub = this.resultService.getResults().subscribe({
       next: (results) => {
         this.results = results;
@@ -30,6 +29,7 @@ export class ResultListComponent implements OnInit, OnDestroy {
         console.log(results[1].Legs[0].TKTs);
         console.log(this.results[0].Legs);
         console.log(this.results);
+        console.log(this.results.length);
       },
       error: (err) => (this.errorMessage = err),
     });

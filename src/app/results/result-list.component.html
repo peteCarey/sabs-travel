@@ -1,10 +1,11 @@
 <h3>{{ pageTitle }}</h3>
+
 <table class="table" [ngClass]="{ 'show-prices': !pricesTable }">
-  <caption>
-    First train
-  </caption>
   <thead>
     <div>
+      <tr>
+        <div class="tableInfo">First train</div>
+      </tr>
       <tr>
         <th>Depart</th>
         <th>Arrive</th>
@@ -34,11 +35,11 @@
 </table>
 
 <table class="table" [ngClass]="{ 'show-prices': !pricesTable }">
-  <caption>
-    Later train
-  </caption>
   <thead>
     <div>
+      <tr>
+        <div class="tableInfo">Next train</div>
+      </tr>
       <tr>
         <th>Depart</th>
         <th>Arrive</th>
@@ -74,11 +75,11 @@
   [ngClass]="{ 'show-prices': pricesTable }"
   id="table5"
 >
-  <caption>
-    Early train prices
-  </caption>
   <thead>
     <div>
+      <tr>
+        <div class="tableInfo">First train</div>
+      </tr>
       <tr>
         <th>Operator</th>
         <th>Ticket Description</th>
@@ -106,11 +107,11 @@
   [ngClass]="{ 'show-prices': pricesTable }"
   id="table6"
 >
-  <caption>
-    Later train prices
-  </caption>
   <thead>
     <div>
+      <tr>
+        <div class="tableInfo">Next train</div>
+      </tr>
       <tr>
         <th>Operator</th>
         <th>Ticket Description</th>
