@@ -8,7 +8,7 @@ import { IResult } from './result';
   providedIn: 'root',
 })
 export class ResultService {
-  private resultUrl = '../assets/results.json';
+  private resultUrl = './assets/results.json';
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +23,7 @@ export class ResultService {
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
-      errorMessage = `An error hass occurred: ${err.error.message}`;
+      errorMessage = `An error has occurred: ${err.error.message}`;
     } else {
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }

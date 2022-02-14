@@ -1,14 +1,12 @@
 export interface IResult {
-  RecNum: string;
-  ReturnUid: string;
-  Infants: string;
-  Co2Produced: string;
-  OutBoundUid: string;
-  DistanceTravelled: string;
-  DepStationCode: string;
-  DepTime: string;
-  Legs: any;
+  DepStnFull: string;
   ArrStnFull: string;
+  RouteTransport: string;
+  Operator: string;
+  DepTime: string;
+  ArrTime: string;
+  TicketDescription: string;
+  DepStationCode: string;
+  Legs: any;
   Tkts: any;
-  TravelCardDiscAdt: string;
 }
