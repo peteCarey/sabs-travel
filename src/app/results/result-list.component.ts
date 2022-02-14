@@ -24,12 +24,9 @@ export class ResultListComponent implements OnInit, OnDestroy {
     this.sub = this.resultService.getResults().subscribe({
       next: (results) => {
         this.results = results;
-
         console.log(this.results[0].Legs[0].TKTs);
         console.log(results[1].Legs[0].TKTs);
         console.log(this.results[0].Legs);
-        console.log(this.results);
-        console.log(this.results.length);
       },
       error: (err) => (this.errorMessage = err),
     });

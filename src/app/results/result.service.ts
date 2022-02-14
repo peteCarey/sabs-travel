@@ -8,7 +8,7 @@ import { IResult } from './result';
   providedIn: 'root',
 })
 export class ResultService {
-  private resultUrl = '../assets/results.json';
+  private resultUrl = './assets/results.json';
 
   constructor(private http: HttpClient) {}
 
